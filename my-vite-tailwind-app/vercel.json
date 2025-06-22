@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "my-vite-tailwind-app",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
