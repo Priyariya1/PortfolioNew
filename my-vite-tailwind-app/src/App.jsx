@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Code, Database, Server, Globe, Menu, X, Star, ArrowRight, User, Briefcase } from 'lucide-react';
 import Hero from '../src/assets/image.png'
 import cake from '../src/assets/cake.jpeg'
