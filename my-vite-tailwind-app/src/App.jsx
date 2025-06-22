@@ -64,42 +64,29 @@ export default function Portfolio() {
       title: 'Meeting Room Booking',
       description: 'Analytics dashboard for social media management with data visualization and reporting.',
       tech: ['React.js', 'Express.js', 'Firebase'],
-      github: 'https://github.com/Priyariya1/Meeting-room',
-       live: 'https://meetlynk-psi.vercel.app/',
-      liveDashbord:'https://meet-hub-livid.vercel.app/',
-      image: meeting
     },
     {
       title: 'Supershield',
       description: 'Property listing platform with advanced search, filters, and virtual tour integration.',
       tech: ['Next.js', 'Wordpress', 'Tailwind'],
-      github: 'https://github.com/Priyariya1/Supershield',
-      live: '',
-      image: supershield
     },
+
      {
       title: 'NXI',
       description: 'Property listing platform with advanced search, filters, and virtual tour integration.',
       tech: ['React.js', 'Express', 'MySQL', 'Tailwind','Prisma ORM'],
-      github: 'https://github.com/Priyariya1/Supershield',
-      live: 'https://nxi.quadnomics.in/',
-      image: NXI
+      
     },
     {
       title: 'Cake-shop',
       description: 'Full-stack e-commerce application with user authentication, payment integration, and admin dashboard.',
       tech: ['React.js','Tailwindcss', "Firebase"],
-      github: 'https://github.com/Priyariya1/cakeshop',
-      live: '#',
-      image: cake
     },
     {
       title: 'Task Management System',
       description: 'Collaborative project management tool with real-time updates and team collaboration features.',
       tech: ['React.js', 'Prisma', 'MySQL', 'Tailwindcss'],
-      github: 'https://github.com/Priyariya1/Event-management',
-      live: '#',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop'
+
     },
     
   ];
@@ -459,62 +446,41 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-800/50 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Featured Projects
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
-                <div key={index} className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-blue-400 group-hover:text-blue-300 transition-colors">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-gray-700 text-blue-400 rounded-full text-sm hover:bg-blue-400 hover:text-gray-900 transition-colors cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex gap-4">
-                      <a
-                        href={project.github}
-                        className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors group-hover:scale-105 transform duration-200"
-                      >
-                        <Github size={18} />
-                        Code
-                      </a>
-                      <a
-                        href={project.live}
-                        className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors group-hover:scale-105 transform duration-200"
-                      >
-                        <ExternalLink size={18} />
-                        Live Demo
-                      </a>
-                    </div>
-                  </div>
-                </div>
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={`transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        Featured Projects
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 p-6"
+          >
+            <h3 className="text-xl font-semibold mb-3 text-blue-400 group-hover:text-blue-300 transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              {project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className="px-3 py-1 bg-gray-700 text-blue-400 rounded-full text-sm hover:bg-blue-400 hover:text-gray-900 transition-colors cursor-default"
+                >
+                  {tech}
+                </span>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 relative">
