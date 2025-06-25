@@ -525,7 +525,7 @@ Ideal for universities, corporate teams, and event organizers, the system centra
 
             <div className="mt-auto text-right">
               <button  onClick={() => setSelectedProject(project)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-                View
+                Details
               </button>
               </div>
           </div>
