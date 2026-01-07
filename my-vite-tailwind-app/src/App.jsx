@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Code, Database, Server, Globe, Menu, X, Star, ArrowRight, User, Briefcase } from 'lucide-react';
 import Hero from '../src/assets/image.png'
+import resume from '../src/assets/Priyadharshini-developer.pdf'
 
 
 export default function Portfolio() {
@@ -59,24 +60,46 @@ export default function Portfolio() {
   };
 
   const projects = [
+
     {
-        title: 'Meeting Room Booking',
-        description: 'The Meeting Room Booking System is a full-stack web application that enables organizations to efficiently manage the scheduling and allocation of meeting spaces.',
-        fullDescription: `This is a full-featured booking management platform designed for office environments and co-working spaces.
-
+      title: 'Mobile Application',
+      description: 'AI-driven mobile app for CA students that delivers accurate, exam-focused answers using RAG-based knowledge retrieval.',
+      fullDescription: `AI-powered mobile application built exclusively for Chartered Accountancy (CA) students, designed to answer CA-related questions with high accuracy using domain-specific knowledge.
+    
+    The app provides instant explanations, exam-oriented answers, and concept clarity across CA Foundation, Inter, and Final levels by leveraging Retrieval-Augmented Generation (RAG)..
+    User authentication using Google Sign-In (Firebase Auth) for secure login
+    
+    Key Features:
+    Implemented secure authentication using Google Sign-In with Firebase Auth
+    Developed a ChatGPT-like conversational interface tailored for CA students
+    Integrated Python-based RAG pipeline for accurate domain-specific responses
+    Enabled Razorpay-powered subscription payments for premium features
+    Designed scalable REST APIs using Express.js
+    Managed user data, chat history, and access limits with MongoDB Atlas
+    Built a responsive, mobile-first UI using React Native & Tailwind CSS
+    
+    The app ensures a seamless experience from browsing to checkout and was developed using React.js, Firebase, and TailwindCSS.`,
+      tech: ['React Native', 'TailwindCSS', 'Express', 'MongoDB', 'Python'],
+    },
+    {
+      title: 'NXI',
+      description: 'Internal project management platform with role-based login, hierarchical data, and tabbed nested structure.',
+      fullDescription: `NXI is an internal enterprise-grade project management system designed to manage hierarchical data structures with strict access control.
+    
         Key Features:
-        - User authentication with role-based access (Admin/User)
-        - Real-time room availability checking and time slot selection
-        - Admin dashboard with booking request management (Accept/Reject/History)
-        - Tab-based filtering for booking status (Pending, Accepted, Rejected, Expired)
-        - Automatic movement of expired bookings to history
-        - Responsive UI with pagination, sorting, and search
-        - Built with React.js (frontend), Express.js (backend), Firebase Firestore for real-time updates, and TailwindCSS for design
-
-        It helps streamline room scheduling, avoids booking conflicts, and ensures efficient utilization of space.`,
-          tech: ['React.js', 'Express.js', 'Firebase', 'TailwindCSS'],
-        },
-
+        - Role-based login: Only admins can add new users/admins through the dashboard
+        - No public registration; user credentials are sent via email for secure login
+        - Parent-child project relationship with deep nesting support
+        - Each project includes three interconnected tabs:
+          1. **Nested Table** – stores hierarchical data using a dynamic nested array model
+          2. **Association** – manages relations across different nodes or entities
+          3. **Detailing** – provides additional contextual metadata and deep linking
+        - Reusable structure across multiple projects for consistency
+        - Fully responsive, admin-first interface with advanced filtering and real-time updates
+    
+        Tech stack includes React.js (frontend), Express (backend), MySQL with Prisma ORM (database), and TailwindCSS for UI.`,
+      tech: ['React.js', 'Express', 'MySQL', 'Tailwind', 'Prisma ORM'],
+    },
     {
       title: 'Supershield',
       description: 'Property listing platform with advanced search, filters, and virtual tour integration.',
@@ -93,63 +116,25 @@ export default function Portfolio() {
       This platform is tailored for modern construction businesses to showcase ongoing, upcoming, and completed projects effectively with high visual appeal and usability.`,
       tech: ['Next.js', 'Wordpress', 'Tailwind'],
     },
-      {
-  title: 'NXI',
-  description: 'Internal project management platform with role-based login, hierarchical data, and tabbed nested structure.',
-  fullDescription: `NXI is an internal enterprise-grade project management system designed to manage hierarchical data structures with strict access control.
-
-    Key Features:
-    - Role-based login: Only admins can add new users/admins through the dashboard
-    - No public registration; user credentials are sent via email for secure login
-    - Parent-child project relationship with deep nesting support
-    - Each project includes three interconnected tabs:
-      1. **Nested Table** – stores hierarchical data using a dynamic nested array model
-      2. **Association** – manages relations across different nodes or entities
-      3. **Detailing** – provides additional contextual metadata and deep linking
-    - Reusable structure across multiple projects for consistency
-    - Fully responsive, admin-first interface with advanced filtering and real-time updates
-
-    Tech stack includes React.js (frontend), Express (backend), MySQL with Prisma ORM (database), and TailwindCSS for UI.`,
-  tech: ['React.js', 'Express', 'MySQL', 'Tailwind', 'Prisma ORM'],
-},
-
-  
     {
-  title: 'Cake-shop',
-  description: 'Full-stack e-commerce application with user authentication, payment integration, and admin dashboard.',
-  fullDescription: `Cake-shop is a full-stack online cake ordering platform that enables users to browse, customize, and purchase cakes with ease.
+        title: 'Ai Assistant',
+        description: 'AI-powered internal application developed for a CA coaching institute to evaluate students’ written answers after class completion.',
+        fullDescription: `Tutors assign questions to students, who submit their written answers through the application. The system analyzes each response using RAG-based evaluation logic and provides objective scoring and feedback aligned with institute-defined answer standards..
 
-Key Features:
-- User authentication using Firebase Auth (Login/Register)
-- Dynamic product listing with filters and image previews
-- Shopping cart with real-time updates
-- Order tracking system with unique order IDs
-- Image upload functionality for custom cake designs
-- Admin dashboard to manage orders, users, and product listings
-- Integrated payment gateway for secure transactions
-- Responsive design built with TailwindCSS for mobile-first usability
+        Key Features:
+        - Role-based authentication for Admin, Tutor, and Student users
+          Admin-controlled user creation and access management
+          Login credentials automatically sent via email to registered users
+          Tutor dashboard to assign questions after class completion
+          Student portal for answer submission and status tracking
+          RAG-based AI answer evaluation using reference solutions
+          Automated score generation with qualitative feedback
+          Tutor access to review student answers and performance reports
+          Secure storage of answers, scores, and evaluation history
 
-The app ensures a seamless experience from browsing to checkout and was developed using React.js, Firebase, and TailwindCSS.`,
-  tech: ['React.js', 'TailwindCSS', 'Firebase'],
-},
-{
-  title: 'Event Management System',
-  description: 'Comprehensive platform for planning, scheduling, and managing events with real-time updates.',
-  fullDescription: `The Event Management System is a full-stack application designed to streamline the process of organizing and managing events for organizations and institutions.
-
-Key Features:
-- Admin panel for creating and managing events, venues, and attendees
-- User login with role-based access (Admin, Organizer, Participant)
-- Event registration and approval workflows
-- Real-time updates for event changes and announcements
-- Dynamic calendar view with filters by date, category, and location
-- Automated email notifications for registrations, updates, and reminders
-- Task assignment and tracking for event staff and volunteers
-- Built with React.js on the frontend, Prisma ORM with MySQL for the backend, and styled using TailwindCSS for responsive design
-
-Ideal for universities, corporate teams, and event organizers, the system centralizes event-related communication and task tracking into a single easy-to-use platform.`,
-  tech: ['React.js', 'Prisma', 'MySQL', 'TailwindCSS'],
-}
+        It helps streamline room scheduling, avoids booking conflicts, and ensures efficient utilization of space.`,
+          tech: ['Next.js', 'Express.js', 'Mongodb', 'TailwindCSS','Python'],
+        }
     
   ];
 
@@ -174,9 +159,15 @@ Ideal for universities, corporate teams, and event organizers, the system centra
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-pulse">
-              &lt;DevPortfolio/&gt;
-            </div>
+            <button
+              onClick={() => scrollToSection('home')}
+              className="text-left"
+            >
+              <div className="text-xs uppercase tracking-[0.25em] text-gray-400">
+                Full Stack Developer
+              </div>
+              
+            </button>
             
             {/* Desktop Menu */}
             <div className="hidden lg:flex space-x-8">
@@ -253,17 +244,34 @@ Ideal for universities, corporate teams, and event organizers, the system centra
     {/* Text Section */}
     <div className={`transition-all duration-1000 ${isVisible.home ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-        <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent animate-pulse">
-          Full Stack
+        <span className="text-sm sm:text-base uppercase tracking-[0.35em] text-blue-300/80">
+          Full Stack · React · Node
         </span>
         <br />
-        <span className="text-white">Developer</span>
+        <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent text-5xl">
+          Hi, I'm Priyadharshini
+        </span>
+        <br />
+        <span className="text-white text-2xl">I build scalable, end‑to‑end web applications.</span>
       </h1>
       <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto lg:mx-0 rounded-full animate-pulse mb-6"></div>
 
-      <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-        Currently working at <span className="text-blue-400 font-semibold">Senthurontech</span>, crafting seamless digital experiences with modern technologies.
+      <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 max-w-xl mx-auto lg:mx-0">
+        Full‑stack developer at <span className="text-blue-400 font-semibold">Senthurontech</span>, 
+        focused on turning real business problems into reliable, production‑ready web applications.
       </p>
+
+      <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8 text-sm sm:text-base">
+        <span className="px-3 py-1 rounded-full bg-gray-800/70 border border-gray-700 text-gray-200">
+          1+ year building full‑stack products
+        </span>
+        <span className="px-3 py-1 rounded-full bg-gray-800/70 border border-gray-700 text-gray-200">
+          20+ projects shipped
+        </span>
+        <span className="px-3 py-1 rounded-full bg-gray-800/70 border border-gray-700 text-gray-200">
+          React · Next.js · Node · Prisma · MySQL
+        </span>
+      </div>
 
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
         <button
@@ -273,6 +281,14 @@ Ideal for universities, corporate teams, and event organizers, the system centra
           View My Work 
           <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
         </button>
+        <a
+          href={resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-2 border-purple-400 text-purple-300 hover:bg-purple-400 hover:text-gray-900 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-xl text-center"
+        >
+          View Resume
+        </a>
         <button
           onClick={() => scrollToSection('contact')}
           className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-xl"
@@ -340,71 +356,143 @@ Ideal for universities, corporate teams, and event organizers, the system centra
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-800/50 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`transition-all duration-1000 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              About Me
-            </h2>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6 text-blue-400">Full Stack Developer at Senthurontech</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                  I'm a passionate full-stack developer currently working at Senthurontech, where I build 
-                  scalable applications with modern web technologies. I love creating solutions that solve 
-                  real-world problems and provide exceptional user experiences.
-                </p>
-                <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-                  Currently expanding my skills with NestJS while maintaining proficiency in 
-                  React.js, Node.js, and various database technologies. I enjoy working on 
-                  challenging projects that push the boundaries of what's possible on the web.
-                </p>
-                
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div className="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors">
-                    <div className="text-3xl font-bold text-blue-400 mb-2">1</div>
-                    <div className="text-gray-300">Years Experience</div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`transition-all duration-1000 ${
+            isVisible?.about
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            About Me
+          </h2>
+
+          {/* MAIN GRID */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+            {/* LEFT COLUMN */}
+            <div>
+            <h3 className="text-2xl font-semibold mb-6 text-blue-400">
+                Full Stack Developer · Senthurontech
+              </h3>
+
+              {/* 🔹 LEFT TOP PARAGRAPH */}
+              <p className="text-gray-300 mb-6 leading-relaxed text-lg min-h-[140px]">
+                I’m a full-stack developer who enjoys owning features end-to-end —
+                from clean, accessible UIs to performant, secure APIs and
+                databases. I focus on writing maintainable code and shipping
+                features that make a measurable difference for users and the
+                business.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">1</div>
+                  <div className="text-gray-300">Years Experience</div>
+                </div>
+                <div className="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors">
+                  <div className="text-3xl font-bold text-purple-400 mb-2">
+                    20+
                   </div>
-                  <div className="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors">
-                    <div className="text-3xl font-bold text-purple-400 mb-2">20+</div>
-                    <div className="text-gray-300">Projects Completed</div>
-                  </div>
+                  <div className="text-gray-300">Projects Completed</div>
                 </div>
               </div>
-              
-              <div className="relative">
-                <div className="w-full max-w-md mx-auto bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl p-8 backdrop-blur-sm border border-gray-700">
-                 <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <Code size={40} className="text-white" />
+
+              {/* Work Experience */}
+              <div className="mt-8 rounded-2xl bg-gradient-to-br from-blue-900/50 via-slate-900/80 to-purple-900/60 border border-blue-500/20 shadow-[0_18px_45px_rgba(15,23,42,0.9)] p-[1px]">
+                <div className="rounded-2xl bg-gray-950/80 px-5 sm:px-6 py-5 sm:py-6">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shadow-inner shadow-blue-900/60">
+                        <Briefcase className="text-blue-300" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-base sm:text-lg font-semibold text-white">
+                          Full Stack Developer
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-400">
+                          Senthurontech · 2024 – Present
+                        </p>
+                      </div>
                     </div>
-                    <h4 className="text-xl font-semibold mb-4">Current Focus</h4>
-                    <ul className="space-y-2 text-gray-300">
-                      <li className="flex items-center gap-2">
-                        <Star size={16} className="text-yellow-400" />
-                        Learning NestJS Framework
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Star size={16} className="text-yellow-400" />
-                        Advanced Next Patterns
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Star size={16} className="text-yellow-400" />
-                        Cloud Architecture
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Star size={16} className="text-yellow-400" />
-                        Learning AWS Cloud Services
-                      </li>
-                    </ul>
+                    <span className="hidden md:inline-flex px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-200 border border-blue-500/40">
+                      React · Node · MySQL · Prisma
+                    </span>
                   </div>
 
+                  <ul className="grid md:grid-cols-2 gap-2.5 text-gray-300 text-sm">
+                    {[
+                      "Built and deployed full-stack web applications using React.js, Node.js, Express.js, and MySQL.",
+                      "Designed secure RESTful APIs with authentication and role-based authorization.",
+                      "Improved performance and maintainability using clean coding standards.",
+                      "Optimized backend APIs, reducing response time by ~30%.",
+                      "Collaborated with cross-functional teams to deliver production-ready features.",
+                      "Used Git and GitHub for version control and code reviews.",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Star
+                          size={14}
+                          className="mt-0.5 text-blue-300 shrink-0"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="flex flex-col">
+              {/* 🔹 RIGHT TOP PARAGRAPH (ALIGNED) */}
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg min-h-[200px] pt-[3.3rem]">
+                My current stack includes{" "}
+                <span className="text-blue-300 font-medium">
+                  React, Next.js, Node.js, Express, Prisma, MySQL, MongoDB,
+                  Firebase
+                </span>{" "}
+                and{" "}
+                <span className="text-blue-300 font-medium">
+                  Tailwind CSS
+                </span>. I’m actively deepening my knowledge in NestJS and cloud
+                architecture to build more scalable backends.
+              </p>
+
+              {/* Current Focus Card */}
+              <div className="w-full max-w-md mx-auto bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl p-8 backdrop-blur-sm border border-gray-700">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                    <Code size={40} className="text-white" />
+                  </div>
+
+                  <h4 className="text-xl font-semibold mb-4">
+                    Current Focus
+                  </h4>
+
+                  <ul className="space-y-2 text-gray-300">
+                    {[
+                      "Learning NestJS Framework",
+                      "Advanced Next.js Patterns",
+                      "Cloud Architecture",
+                      "Learning AWS Cloud Services",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <Star size={16} className="text-yellow-400" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-20 relative">
@@ -523,8 +611,8 @@ Ideal for universities, corporate teams, and event organizers, the system centra
               ))}
             </div>
 
-            <div className="mt-auto text-right">
-              <button  onClick={() => setSelectedProject(project)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            <div className="mt-auto text-right pt-[1rem]">
+              <button  onClick={() => setSelectedProject(project)} className="px-4 py-2  bg-blue-500 text-white rounded hover:bg-blue-600 transition">
                 Details
               </button>
               </div>
