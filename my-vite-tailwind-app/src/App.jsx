@@ -195,12 +195,13 @@ export default function Portfolio() {
             {/* Desktop Menu */}
             <div className="hidden lg:flex space-x-8">
               {[
-                { id: 'home', label: 'Home', icon: User },
-                { id: 'about', label: 'About', icon: User },
-                { id: 'skills', label: 'Skills', icon: Code },
-                { id: 'projects', label: 'Projects', icon: Briefcase },
-                { id: 'contact', label: 'Contact', icon: Mail }
-              ].map((item) => {
+  { id: 'home', label: 'Home', icon: User },
+  { id: 'about', label: 'About', icon: User }, // 👈 ADD THIS
+  { id: 'skills', label: 'Skills', icon: Code },
+  { id: 'projects', label: 'Projects', icon: Briefcase },
+  { id: 'contact', label: 'Contact', icon: Mail }
+]
+.map((item) => {
                 const IconComponent = item.icon;
                 return (
                   <button
@@ -236,7 +237,6 @@ export default function Portfolio() {
           <div className="px-4 py-4 space-y-2">
             {[
               { id: 'home', label: 'Home', icon: User },
-              { id: 'about', label: 'About', icon: User },
               { id: 'skills', label: 'Skills', icon: Code },
               { id: 'projects', label: 'Projects', icon: Briefcase },
               { id: 'contact', label: 'Contact', icon: Mail }
@@ -258,7 +258,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section id="home" className="min-h-[100svh] lg:min-h-screen overflow-visible flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Enhanced Animated Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -460,7 +460,7 @@ export default function Portfolio() {
 
         {/* Scroll Down Button */}
         <button
-          onClick={() => scrollToSection('about')}
+          onClick={() => scrollToSection('skills')}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 group"
         >
           <div className="p-3 bg-gray-800/50 hover:bg-blue-600 rounded-full transition-all duration-300 hover:scale-110">
@@ -470,8 +470,12 @@ export default function Portfolio() {
       </section>
 
 
-      {/* About Section */}
-      <section id="about" className="py-24 bg-gradient-to-b from-gray-900 via-gray-800/50 to-gray-900 relative overflow-hidden">
+      {/* About Section - Hidden on Mobile */}
+      <section
+  id="about"
+  className="block py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 via-gray-800/50 to-gray-900 relative overflow-hidden scroll-mt-24"
+>
+
         {/* Animated Background Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -485,37 +489,37 @@ export default function Portfolio() {
             }`}
           >
             {/* Title Section */}
-            <div className="text-center mb-20">
-              <div className="inline-block mb-4">
-                <span className="text-sm uppercase tracking-[0.3em] text-blue-400 font-semibold">Get to Know Me</span>
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+              <div className="inline-block mb-3 sm:mb-4">
+                <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-blue-400 font-semibold">Get to Know Me</span>
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent px-4">
                 About Me
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+              <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
 
             {/* Hero Card */}
-            <div className="mb-12 rounded-3xl bg-gradient-to-br from-gray-800/90 via-gray-800/80 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 shadow-2xl p-8 sm:p-10 hover:border-blue-500/50 transition-all duration-500">
-              <div className="flex flex-col lg:flex-row items-center gap-8">
+            <div className="mb-8 sm:mb-10 lg:mb-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-gray-800/90 via-gray-800/80 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 shadow-2xl p-6 sm:p-8 lg:p-10 hover:border-blue-500/50 transition-all duration-500">
+              <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
                 <div className="flex-shrink-0">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
-                    <div className="relative w-32 h-32 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1">
+                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                       <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center">
-                        <User size={64} className="text-blue-400" />
+                        <User size={48} className="sm:w-16 sm:h-16 lg:w-16 lg:h-16 text-blue-400" />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="flex-1 text-center lg:text-left">
-                  <h3 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Full Stack Developer
                   </h3>
-                  <p className="text-lg text-gray-300 mb-4">
+                  <p className="text-base sm:text-lg text-gray-300 mb-3 sm:mb-4">
                     <span className="text-blue-400 font-semibold">@ Senthurontech</span> · Building scalable web applications
                   </p>
-                  <p className="text-gray-400 leading-relaxed text-lg">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed">
                     I'm a full-stack developer who enjoys owning features end-to-end — from clean, accessible UIs to performant, secure APIs and databases. I focus on writing maintainable code and shipping features that make a measurable difference for users and the business.
                   </p>
                 </div>
@@ -523,60 +527,60 @@ export default function Portfolio() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              <div className="group relative bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+              <div className="group relative bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
                 <div className="relative">
-                  <div className="text-4xl font-bold text-blue-400 mb-2 group-hover:scale-110 transition-transform">1+</div>
-                  <div className="text-gray-300 text-sm font-medium">Years Experience</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-400 mb-1 sm:mb-2 group-hover:scale-110 transition-transform">1+</div>
+                  <div className="text-gray-300 text-xs sm:text-sm font-medium">Years Experience</div>
                 </div>
               </div>
-              <div className="group relative bg-gradient-to-br from-purple-500/10 to-purple-600/5 rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all"></div>
+              <div className="group relative bg-gradient-to-br from-purple-500/10 to-purple-600/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all"></div>
                 <div className="relative">
-                  <div className="text-4xl font-bold text-purple-400 mb-2 group-hover:scale-110 transition-transform">20+</div>
-                  <div className="text-gray-300 text-sm font-medium">Projects Completed</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-400 mb-1 sm:mb-2 group-hover:scale-110 transition-transform">20+</div>
+                  <div className="text-gray-300 text-xs sm:text-sm font-medium">Projects Completed</div>
                 </div>
               </div>
-              <div className="group relative bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 rounded-2xl p-6 border border-cyan-500/20 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+              <div className="group relative bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-1">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
                 <div className="relative">
-                  <div className="text-4xl font-bold text-cyan-400 mb-2 group-hover:scale-110 transition-transform">100%</div>
-                  <div className="text-gray-300 text-sm font-medium">Client Satisfaction</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-cyan-400 mb-1 sm:mb-2 group-hover:scale-110 transition-transform">100%</div>
+                  <div className="text-gray-300 text-xs sm:text-sm font-medium">Client Satisfaction</div>
                 </div>
               </div>
-              <div className="group relative bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-2xl p-6 border border-green-500/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-green-500/10 rounded-full blur-xl group-hover:bg-green-500/20 transition-all"></div>
+              <div className="group relative bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-green-500/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:-translate-y-1">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-green-500/10 rounded-full blur-xl group-hover:bg-green-500/20 transition-all"></div>
                 <div className="relative">
-                  <div className="text-4xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform">24/7</div>
-                  <div className="text-gray-300 text-sm font-medium">Available</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-400 mb-1 sm:mb-2 group-hover:scale-110 transition-transform">24/7</div>
+                  <div className="text-gray-300 text-xs sm:text-sm font-medium">Available</div>
                 </div>
               </div>
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
               {/* Work Experience Card */}
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-3xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 p-8 hover:border-blue-500/50 transition-all duration-500 shadow-2xl">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-                      <Briefcase className="text-white" size={24} />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 p-6 sm:p-8 hover:border-blue-500/50 transition-all duration-500 shadow-2xl">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+                      <Briefcase className="text-white" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-white mb-1">Full Stack Developer</h4>
-                      <p className="text-sm text-gray-400">Senthurontech · 2024 – Present</p>
+                      <h4 className="text-lg sm:text-xl font-bold text-white mb-1">Full Stack Developer</h4>
+                      <p className="text-xs sm:text-sm text-gray-400">Senthurontech · 2024 – Present</p>
                     </div>
                   </div>
                   
-                  <div className="mb-6">
-                    <span className="inline-flex px-4 py-2 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-300 border border-blue-500/30">
+                  <div className="mb-4 sm:mb-6">
+                    <span className="inline-flex px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-300 border border-blue-500/30">
                       React · Node · MySQL · Prisma
                     </span>
                   </div>
 
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {[
                       "Built and deployed full-stack web applications using React.js, Node.js, Express.js, and MySQL.",
                       "Designed secure RESTful APIs with authentication and role-based authorization.",
@@ -585,9 +589,9 @@ export default function Portfolio() {
                       "Collaborated with cross-functional teams to deliver production-ready features.",
                       "Used Git and GitHub for version control and code reviews.",
                     ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-300">
-                        <div className="mt-1.5 w-2 h-2 rounded-full bg-blue-400 shrink-0"></div>
-                        <span className="text-sm leading-relaxed">{item}</span>
+                      <li key={i} className="flex items-start gap-2 sm:gap-3 text-gray-300">
+                        <div className="mt-1.5 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-400 shrink-0"></div>
+                        <span className="text-xs sm:text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -595,16 +599,16 @@ export default function Portfolio() {
               </div>
 
               {/* Right Column - Stack & Focus */}
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {/* Tech Stack Card */}
-                <div className="rounded-3xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 p-8 hover:border-purple-500/50 transition-all duration-500 shadow-2xl">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
-                      <Code className="text-white" size={24} />
+                <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl border border-gray-700/50 p-6 sm:p-8 hover:border-purple-500/50 transition-all duration-500 shadow-2xl">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                      <Code className="text-white" size={20} />
                     </div>
-                    <h4 className="text-xl font-bold text-white">Tech Stack</h4>
+                    <h4 className="text-lg sm:text-xl font-bold text-white">Tech Stack</h4>
                   </div>
-                  <p className="text-gray-300 leading-relaxed mb-4">
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3 sm:mb-4">
                     My current stack includes{" "}
                     <span className="text-blue-400 font-semibold">
                       React, Next.js, Node.js, Express, Prisma, MySQL, MongoDB, Firebase
@@ -612,32 +616,32 @@ export default function Portfolio() {
                     and{" "}
                     <span className="text-purple-400 font-semibold">Tailwind CSS</span>.
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-xs sm:text-sm text-gray-400">
                     I'm actively deepening my knowledge in NestJS and cloud architecture to build more scalable backends.
                   </p>
                 </div>
 
                 {/* Current Focus Card */}
-                <div className="rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-cyan-500/20 backdrop-blur-xl border border-blue-500/30 p-8 hover:border-blue-400/50 transition-all duration-500 shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-cyan-500/20 backdrop-blur-xl border border-blue-500/30 p-6 sm:p-8 hover:border-blue-400/50 transition-all duration-500 shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
                   <div className="relative">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
-                        <Star className="text-white" size={24} />
+                    <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+                        <Star className="text-white" size={20} />
                       </div>
-                      <h4 className="text-xl font-bold text-white">Current Focus</h4>
+                      <h4 className="text-lg sm:text-xl font-bold text-white">Current Focus</h4>
                     </div>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {[
                         "Learning NestJS Framework",
                         "Advanced Next.js Patterns",
                         "Cloud Architecture",
                         "Learning AWS Cloud Services",
                       ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-gray-200">
-                          <div className="w-2 h-2 rounded-full bg-yellow-400 shrink-0 animate-pulse"></div>
-                          <span className="text-sm font-medium">{item}</span>
+                        <li key={i} className="flex items-center gap-2 sm:gap-3 text-gray-200">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-yellow-400 shrink-0 animate-pulse"></div>
+                          <span className="text-xs sm:text-sm font-medium">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -711,28 +715,28 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-800/50 relative">
+      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gray-800/50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent px-4">
               Featured Projects
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-gray-800/90 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 overflow-hidden backdrop-blur-sm"
+                  className="bg-gray-800/90 rounded-xl sm:rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 overflow-hidden backdrop-blur-sm"
                 >
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
+                  <div className="relative h-40 sm:h-48 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       onError={(e) => {
                         e.target.style.display = 'none';
-                        e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center"><div class="text-6xl">📱</div></div>';
+                        e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center"><div class="text-4xl sm:text-6xl">📱</div></div>';
                       }}
                     />
                     {/* Gradient Overlay */}
@@ -740,26 +744,26 @@ export default function Portfolio() {
                   </div>
 
                   {/* Project Content */}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-white group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 mb-6 leading-relaxed text-sm line-clamp-3">
+                    <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                       {project.tech.slice(0, 3).map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-gray-700/50 text-blue-400 rounded-full text-xs font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default"
+                          className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gray-700/50 text-blue-400 rounded-full text-xs font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors cursor-default"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.tech.length > 3 && (
-                        <span className="px-3 py-1 bg-gray-700/50 text-gray-400 rounded-full text-xs font-medium border border-gray-600/20">
+                        <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gray-700/50 text-gray-400 rounded-full text-xs font-medium border border-gray-600/20">
                           +{project.tech.length - 3}
                         </span>
                       )}
@@ -768,10 +772,10 @@ export default function Portfolio() {
                     {/* Read More Button */}
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/30"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/30"
                     >
                       Read More
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -782,16 +786,16 @@ export default function Portfolio() {
       </section>
 {selectedProject && (
   <div 
-    className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+    className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4"
     onClick={() => setSelectedProject(null)}
   >
     <div 
-      className="bg-gray-900 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-700/50 shadow-2xl"
+      className="bg-gray-900 rounded-xl sm:rounded-2xl max-w-3xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative border border-gray-700/50 shadow-2xl"
       onClick={(e) => e.stopPropagation()}
     >
       {/* Close Button */}
       <button
-        className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-gray-800/80 hover:bg-red-600 rounded-full text-gray-300 hover:text-white transition-all duration-300 text-2xl"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-800/80 hover:bg-red-600 rounded-full text-gray-300 hover:text-white transition-all duration-300 text-xl sm:text-2xl"
         onClick={() => setSelectedProject(null)}
       >
         &times;
@@ -799,14 +803,14 @@ export default function Portfolio() {
 
       {/* Project Image */}
       {selectedProject.image && (
-        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
+        <div className="relative h-40 sm:h-56 lg:h-64 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
           <img
             src={selectedProject.image}
             alt={selectedProject.title}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
-              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center"><div class="text-8xl">📱</div></div>';
+              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center"><div class="text-4xl sm:text-6xl lg:text-8xl">📱</div></div>';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
@@ -814,20 +818,20 @@ export default function Portfolio() {
       )}
 
       {/* Project Content */}
-      <div className="p-6 sm:p-8">
-        <h2 className="text-3xl font-bold text-blue-400 mb-4">
+      <div className="p-4 sm:p-6 lg:p-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-3 sm:mb-4">
           {selectedProject.title}
         </h2>
 
-        <p className="text-gray-300 leading-relaxed mb-6 whitespace-pre-line">
+        <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6 whitespace-pre-line">
           {selectedProject.fullDescription}
         </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {selectedProject.tech.map((tech, index) => (
             <span
               key={index}
-              className="px-4 py-2 bg-gray-800 text-blue-400 rounded-full text-sm font-medium border border-blue-500/30 hover:bg-blue-500/20 transition-colors"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-800 text-blue-400 rounded-full text-xs sm:text-sm font-medium border border-blue-500/30 hover:bg-blue-500/20 transition-colors"
             >
               {tech}
             </span>
