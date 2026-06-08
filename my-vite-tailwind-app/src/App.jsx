@@ -4,7 +4,7 @@ import {
   Menu, X, ArrowRight, Briefcase, ChevronDown, Star, Download, Layers, ExternalLink
 } from 'lucide-react';
 import Hero from '../src/assets/image.png';
-import resume from '../src/assets/Priyadharshini-developer.pdf';
+import resume from '../src/assets/PRIYADHARSHINI.pdf';
 
 /* ─── PARTICLE CANVAS ──────────────────────────────── */
 function ParticleCanvas() {
